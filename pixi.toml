@@ -1,0 +1,14 @@
+[workspace]
+authors = ["H.-Y. Amanieu <hy.amanieu@leclanche.com>"]
+channels = ["conda-forge"]
+name = "sql_anon_dmp"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "3.14.7.*"
+pymysql = "1.2.0.*"
+cryptography = "48.0.1.*"
+
+[tasks]
+run = { cmd = "python src/mariadb_anon_dump.py", cwd = "." }

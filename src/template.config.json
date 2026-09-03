@@ -1,0 +1,79 @@
+{
+  "connection": {
+    "host": "spamlocalhost",
+    "port": 6163,
+    "user": "sir_lancelot",
+    "password": "",
+    "database": "ministry_of_silly_walks",
+    "charset": "utf8mb4",
+    "ssl": null,
+    "connect_timeout": 42
+  },
+
+  "output": {
+    "dir": "./nice_dump",
+    "format": "sql",
+    "sql_batch_size": 500,
+    "include_drop_table": false,
+    "include_create_table": false,
+    "csv_quoting": 0
+  },
+
+  "anonymization": {
+    "seed": 451
+  },
+
+  "obfuscation": {
+    "default_factor": 3.6,
+    "default_round": 4
+  },
+
+  "tables": [
+    {
+      "schema": "camelot",
+      "table": "knights_who_say_ni",
+      "where": "shrubbery IN ('expensive','luxury','alright')",
+      "remove_columns": ["coconut_migration_route", "swallow_carry_capacity"],
+      "anonymize_columns": [
+        "knight_name",
+        "favorite_color",
+        "quest",
+        " shrubbery_id"
+      ],
+      "obfuscate_columns": [
+        "number_of_shrubberies",
+        { "column": "grail_distance", "factor": 7.5, "round": 2 }
+      ],
+      "order_by": "id"
+    },
+    {
+      "schema": "bridge_of_death",
+      "table": "questions",
+      "where": "answered IN ('blue','african','swallow')",
+      "remove_columns": ["keeper_true_name"],
+      "anonymize_columns": [
+        "question_text",
+        "expected_answer",
+        "keeper_alias"
+      ],
+      "obfuscate_columns": [
+        "bridge_troll_count"
+      ],
+      "order_by": "id"
+    },
+    {
+      "schema": "life_universe_everything",
+      "table": "deep_thought",
+      "where": "question IS NOT NULL",
+      "remove_columns": ["ultimate_answer_bin"],
+      "anonymize_columns": [
+        "question",
+        "asker_name"
+      ],
+      "obfuscate_columns": [
+        { "column": "computation_time", "factor": 7.5, "round": 0 }
+      ],
+      "order_by": "id"
+    }
+  ]
+}
